@@ -1,0 +1,136 @@
+*,
+*:before,
+*:after
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    font-family: 'Nunito', sans-serif
+    padding: 0
+    margin: 0
+
+a
+    color: inherit
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+.game-header
+    position: absolute
+    background: rgb(255, 255, 255)
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%,  rgba(255, 255, 255, 1) 33%,  rgba(255, 255, 255, 1) 100%)
+    display: flex
+    padding-bottom: 30px
+    top: 0
+    left: 0
+    width: 100%
+    height: 150px
+    justify-content: center
+    align-items: center
+    z-index: 1
+
+.start-button
+    color: black
+    border: 1px solid black
+    border-radius: 4px
+    padding: 0px 8px
+    cursor: pointer
+
+.playing-field
+    position: relative
+    perspective: 1000px
+    width: 100vw
+    height: 100vh
+
+.beats-platform
+    display: flex
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 80%
+    height: 95%
+    max-width: 540px
+    transform: translate(-50%, -50%) rotateX(20deg)
+    .visualizer
+        width: 0
+        height: 100%
+        position: absolute
+        top: 0
+        z-index: -1
+        &.visualizer--left
+            left: 0
+            transform: rotateZ(-180deg)
+        &.visualizer--right
+            right: 0
+            transform: rotateZ(180deg) rotateY(180deg)
+        > div
+            background: #f2f2f2
+            width: 60px
+            height: 1px
+    .lines-container
+        position: relative
+        width: 100%
+        height: 100%
+        box-shadow: 0px 0px 30px 5px rgb(0 0 0 / 25%)
+        .perfect-line
+            position: absolute
+            background-color: rgba(0 0 0 / 25%)
+            width: calc(100% - 18px)
+            height: 1px
+            bottom: 15%
+            left: 9px
+        .lines
+            display: flex
+            background: #efefef
+            padding: 0 4px
+            height: 100%
+            .line
+                display: flex
+                background: white
+                flex: 1
+                margin: 0 5px
+                align-items: flex-end
+                justify-content: center
+                box-shadow: 0px 0px 4px 1px rgb(0 0 0 / 15%)
+    .beat
+        position: absolute
+        perspective: 1000px
+        perspective-origin: 250px
+        .cube
+            position: relative
+            transform-style: preserve-3d
+            .cube__face
+                position: absolute
+                background: #1f1f1f
+                border: 2px solid #5d5d5d
+                border-bottom: 0px
+                border-top-left-radius: 10px
+                border-top-right-radius: 10px
+                &.cube__face--top,
+                &.cube__face--front,
+                &.cube__face--right
+                    background: #292929
+                &.cube__face--back,
+                &.cube__face--left,
+                &.cube__face--bottom
+                    background: #5d5d5d
+                &.cube__face--top
+                    border: 1px solid #858585
+                    border-radius: 8px
+                    &:after
+                        position: absolute
+                        background: rgba(255 255 255 / 90%)
+                        content: ""
+                        display: block
+                        width: 75%
+                        height: 10px
+                        top: 50%
+                        left: 50%
+                        border-radius: 2px
+                        box-shadow: 0 0 10px 5px rgb(255 255 255 / 50%)
+                        transform: translate(-50%, -50%)
+                &.cube__face--bottom
+                    border: 0
+                    border-radius: 0
+                    box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 50%)

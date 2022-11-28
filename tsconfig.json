@@ -1,0 +1,46 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "useDefineForClassFields": true,
+
+        // Required in Vue projects
+        "jsx": "preserve",
+
+        // `"noImplicitThis": true` is part of `strict`
+        // Added again here in case some users decide to disable `strict`.
+        // This enables stricter inference for data properties on `this`.
+        "noImplicitThis": true,
+        "strict": true,
+
+        // For `<script setup>`
+        // See <https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/#preserve-value-imports>
+        "preserveValueImports": true,
+
+        // Enforce using `import type` instead of `import` for types
+        "importsNotUsedAsValues": "error",
+
+        // Recommended
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        // See <https://github.com/vuejs/vue-cli/pull/5688>
+        "skipLibCheck": true,
+
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+
+        "baseUrl": "./",
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true
+    },
+    "include": [
+        "resources/js/**/*.ts",
+        "resources/js/**/*.tsx",
+        "resources/js/**/*.vue"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
